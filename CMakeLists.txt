@@ -36,9 +36,9 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "-pg")
 endif()
 
-set(BINDIR  "games"             CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game executable will be installed.")
-set(DATADIR "share/games/flare" CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game data files will be installed.")
-set(MANDIR  "share/man"         CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where manual pages will be installed.")
+#set(BINDIR  "./games"             CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game executable will be installed.")
+#set(DATADIR "./share/games/flare" CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where game data files will be installed.")
+#set(MANDIR  "./games"         CACHE STRING "Directory from CMAKE_INSTALL_PREFIX where manual pages will be installed.")
 
 If(NOT IS_ABSOLUTE "${BINDIR}")
   set(FLARE_EXECUTABLE_PATH ${CMAKE_INSTALL_PREFIX}/${BINDIR}/flare)
@@ -85,7 +85,7 @@ EndIf (NOT SDLTTF_FOUND)
 Include_Directories (includes)
 
 # Sources
-Set (FLARE_SOURCES
+set(FLARE_SOURCES
 	./src/BehaviorAlly.cpp
 	./src/Entity.cpp
 	./src/Animation.cpp
@@ -152,6 +152,7 @@ Set (FLARE_SOURCES
 	./src/QuestLog.cpp
 	./src/SaveLoad.cpp
 	./src/SDL_gfxBlitFunc.c
+	./src/SDLRenderDevice.cpp
 	./src/Settings.cpp
 	./src/SharedGameResources.cpp
 	./src/SharedResources.cpp
@@ -164,19 +165,24 @@ Set (FLARE_SOURCES
 	./src/UtilsDebug.cpp
 	./src/UtilsFileSystem.cpp
 	./src/UtilsParsing.cpp
-	./src/Widget.cpp
-	./src/WidgetCheckBox.cpp
-	./src/WidgetButton.cpp
-	./src/WidgetInput.cpp
- 	./src/WidgetLabel.cpp
- 	./src/WidgetListBox.cpp
-	./src/WidgetScrollBar.cpp
-	./src/WidgetScrollBox.cpp
-	./src/WidgetSlider.cpp
-	./src/WidgetSlot.cpp
- 	./src/WidgetTabControl.cpp
-	./src/WidgetTooltip.cpp
 	./src/main.cpp
+)
+
+# user interface sources
+set(FLARE_SOURCES 
+    ${FLARE_SOURCES}
+    ./src/ui/Widget.cpp
+	./src/ui/WidgetCheckBox.cpp
+	./src/ui/WidgetButton.cpp
+	./src/ui/WidgetInput.cpp
+ 	./src/ui/WidgetLabel.cpp
+ 	./src/ui/WidgetListBox.cpp
+	./src/ui/WidgetScrollBar.cpp
+	./src/ui/WidgetScrollBox.cpp
+	./src/ui/WidgetSlider.cpp
+	./src/ui/WidgetSlot.cpp
+ 	./src/ui/WidgetTabControl.cpp
+	./src/ui/WidgetTooltip.cpp
 )
 
 # Add icon and file info to executable for Windows systems
@@ -197,7 +203,7 @@ EndIf (NOT SDLMAIN_LIBRARY)
 Target_Link_Libraries (flare ${CMAKE_LD_FLAGS} ${SDL_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY})
 
 # installing to the proper places
-install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/flare DESTINATION ${BINDIR})
-install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/mods" DESTINATION ${DATADIR}/default)
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.man" DESTINATION ${MANDIR}/man1 RENAME flare.1)
+#install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/flare DESTINATION ${BINDIR})
+#install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/mods" DESTINATION ${DATADIR}/default)
+#install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.man" DESTINATION ${MANDIR}/man1 RENAME flare.1)
 

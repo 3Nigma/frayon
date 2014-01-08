@@ -49,8 +49,8 @@ AnimationSet::AnimationSet(const std::string &animationname)
 	: name(animationname)
 	, loaded(false)
 	, animations()
-	, sprite(NULL) {
-	defaultAnimation = new Animation("default", "play_once", NULL);
+	, sprite(Image()) {
+	defaultAnimation = new Animation("default", "play_once", Image());
 	defaultAnimation->setupUncompressed(Point(), Point(), 0, 1, 0);
 }
 
@@ -76,9 +76,7 @@ void AnimationSet::load() {
 	vector<short> active_frames;
 
 	// Parse the file and on each new section create an animation object from the data parsed previously
-	parser.next();
-
-	do {
+	while (parser.next()) {
 		// create the animation if finished parsing a section
 		if (parser.new_section) {
 			if (!first_section && !compressed_loading) {
@@ -93,7 +91,7 @@ void AnimationSet::load() {
 			compressed_loading = false;
 		}
 		if (parser.key == "image") {
-			if (sprite) {
+			if (sprite.graphicIsNull() == false) {
 				printf("multiple images specified in %s, dragons be here!\n", name.c_str());
 				SDL_Quit();
 				exit(128);
@@ -172,7 +170,6 @@ void AnimationSet::load() {
 		}
 		_name = parser.section;
 	}
-	while (parser.next());
 
 	if (!compressed_loading) {
 		// add final animation

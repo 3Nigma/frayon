@@ -3,6 +3,7 @@ Copyright © 2011-2012 Clint Bellanger
 Copyright © 2012 Igor Paliychuk
 Copyright © 2012-2013 Henrik Andersson
 Copyright © 2012 Stefan Beller
+Copyright © 2013 Kurt Rinnert
 
 This file is part of FLARE.
 
@@ -68,7 +69,6 @@ GameStatePlay::GameStatePlay()
 	, enemy(NULL)
 	, loading(new WidgetLabel())
 	// Load the loading screen image (we currently use the confirm dialog background):
-	, loading_bg(loadGraphicSurface("images/menus/confirm_bg.png"))
 	, npc_id(-1)
 	, eventDialogOngoing(false)
 	, eventPendingDialog(false)
@@ -78,6 +78,7 @@ GameStatePlay::GameStatePlay()
 	hasMusic = true;
 	// GameEngine scope variables
 
+	loading_bg.setGraphics(render_device->loadGraphicSurface("images/menus/confirm_bg.png"));
 	powers = new PowerManager();
 	items = new ItemManager();
 	camp = new CampaignManager();
@@ -106,7 +107,7 @@ GameStatePlay::GameStatePlay()
  * Reset all game states to a new game.
  */
 void GameStatePlay::resetGame() {
-	mapr->load("spawn.txt");
+	mapr->load("maps/spawn.txt");
 	camp->clearAll();
 	pc->init();
 	pc->stats.currency = 0;
@@ -529,14 +530,14 @@ void GameStatePlay::checkLootDrop() {
 
 	// if the player has dropped an item from the inventory
 	if (menu->drop_stack.item > 0) {
-		loot->addLoot(menu->drop_stack, pc->stats.pos);
+		loot->addLoot(menu->drop_stack, pc->stats.pos, true);
 		menu->drop_stack.item = 0;
 		menu->drop_stack.quantity = 0;
 	}
 
 	// if the player has dropped a quest rward because inventory full
 	if (camp->drop_stack.item > 0) {
-		loot->addLoot(camp->drop_stack, pc->stats.pos);
+		loot->addLoot(camp->drop_stack, pc->stats.pos, true);
 		camp->drop_stack.item = 0;
 		camp->drop_stack.quantity = 0;
 	}
@@ -544,7 +545,7 @@ void GameStatePlay::checkLootDrop() {
 	// if the player been directly given items, but their inventory is full
 	// this happens when adding currency from older save files
 	if (menu->inv->drop_stack.item > 0) {
-		loot->addLoot(menu->inv->drop_stack, pc->stats.pos);
+		loot->addLoot(menu->inv->drop_stack, pc->stats.pos, true);
 		menu->inv->drop_stack.item = 0;
 		menu->inv->drop_stack.quantity = 0;
 	}
@@ -960,16 +961,17 @@ void GameStatePlay::render() {
 }
 
 void GameStatePlay::showLoading() {
-	if (!loading_bg) return;
+	if (loading_bg.graphicsIsNull()) return;
 
 	SDL_Rect dest;
-	dest.x = VIEW_W_HALF - loading_bg->w/2;
-	dest.y = VIEW_H_HALF - loading_bg->h/2;
+	dest.x = VIEW_W_HALF - loading_bg.getGraphicsWidth()/2;
+	dest.y = VIEW_H_HALF - loading_bg.getGraphicsHeight()/2;
 
-	SDL_BlitSurface(loading_bg,NULL,screen,&dest);
+	loading_bg.setDest(dest);
+	render_device->render(loading_bg);
 	loading->render();
 
-	SDL_Flip(screen);
+	render_device->commitFrame();
 }
 
 Avatar *GameStatePlay::getAvatar() const {
@@ -992,7 +994,5 @@ GameStatePlay::~GameStatePlay() {
 	delete loading;
 
 	delete enemyg;
-
-	SDL_FreeSurface(loading_bg);
 }
 

@@ -20,7 +20,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
  */
 
 #include "Avatar.h"
-#include "SDL_gfxBlitFunc.h"
 #include "FileParser.h"
 #include "GameStateLoad.h"
 #include "GameStateTitle.h"
@@ -38,7 +37,6 @@ using namespace std;
 
 GameStateLoad::GameStateLoad() : GameState() {
 	items = new ItemManager();
-	portrait = NULL;
 	loading_requested = false;
 	loading = false;
 	loaded = false;
@@ -87,10 +85,12 @@ GameStateLoad::GameStateLoad() : GameState() {
 				button_alternate->pos.y = eatFirstInt(infile.val, ',');
 			}
 			else if (infile.key == "portrait") {
-				portrait_pos.x = eatFirstInt(infile.val, ',');
-				portrait_pos.y = eatFirstInt(infile.val, ',');
-				portrait_pos.w = eatFirstInt(infile.val, ',');
-				portrait_pos.h = eatFirstInt(infile.val, ',');
+				portrait.setDestX(eatFirstInt(infile.val, ','));
+				portrait.setDestX(portrait.getDest().x + (VIEW_W - FRAME_W)/2);
+				portrait.setDestY(eatFirstInt(infile.val, ','));
+				portrait.setDestY(portrait.getDest().y + (VIEW_H - FRAME_H)/2);
+				portrait.setClipW(eatFirstInt(infile.val, ','));
+				portrait.setClipH(eatFirstInt(infile.val, ','));
 			}
 			else if (infile.key == "gameslot") {
 				gameslot_pos.x = eatFirstInt(infile.val, ',');
@@ -158,7 +158,7 @@ GameStateLoad::GameStateLoad() : GameState() {
 
 	// get displayable types list
 	bool found_layer = false;
-	if (infile.open("engine/hero_options.txt", true, false)) {
+	if (infile.open("engine/hero_layers.txt")) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
@@ -212,20 +212,21 @@ GameStateLoad::GameStateLoad() : GameState() {
 }
 
 void GameStateLoad::loadGraphics() {
-	background = loadGraphicSurface("images/menus/game_slots.png");
-	selection = loadGraphicSurface("images/menus/game_slot_select.png", "Couldn't load image", false, true);
-	portrait_border = loadGraphicSurface("images/menus/portrait_border.png", "Couldn't load image", false, true);
+	background.setGraphics(render_device->loadGraphicSurface("images/menus/game_slots.png"));
+	selection.setGraphics(render_device->loadGraphicSurface("images/menus/game_slot_select.png", "Couldn't load image", false, true));
+	portrait_border.setGraphics(render_device->loadGraphicSurface("images/menus/portrait_border.png", "Couldn't load image", false, true));
 }
 
 void GameStateLoad::loadPortrait(int slot) {
-	SDL_FreeSurface(portrait);
-	portrait = NULL;
+	portrait.clearGraphics();
 
 	if (slot < 0) return;
 
 	if (stats[slot].name == "") return;
 
-	portrait = loadGraphicSurface("images/portraits/" + stats[slot].gfx_portrait + ".png");
+	portrait.setGraphics(
+		render_device->loadGraphicSurface("images/portraits/" + stats[slot].gfx_portrait + ".png")
+	);
 }
 
 void GameStateLoad::readGameSlots() {
@@ -236,7 +237,7 @@ void GameStateLoad::readGameSlots() {
 
 string GameStateLoad::getMapName(const string& map_filename) {
 	FileParser infile;
-	if (!infile.open("maps/" + map_filename, true, true, "")) return "";
+	if (!infile.open(map_filename, true, true, "")) return "";
 	string map_name = "";
 
 	while (map_name == "" && infile.next()) {
@@ -310,7 +311,7 @@ void GameStateLoad::loadPreview(int slot) {
 	vector<string> img_gfx;
 
 	for (unsigned int i=0; i<sprites[slot].size(); i++) {
-		if (sprites[slot][i]) SDL_FreeSurface(sprites[slot][i]);
+		sprites[slot][i].clearGraphics();
 	}
 	sprites[slot].clear();
 
@@ -345,15 +346,21 @@ void GameStateLoad::loadPreview(int slot) {
 		if (img_gfx[i] == "")
 			continue;
 
-		sprites[slot].push_back(NULL);
+		sprites[slot].push_back(Sprite());
 
 		if (!TEXTURE_QUALITY) {
 			string fname = "images/avatar/" + stats[slot].gfx_base + "/preview/noalpha/" + img_gfx[i] + ".png";
-			sprites[slot].back() = loadGraphicSurface(fname, "Falling back to alpha version", false, true);
+			sprites[slot].back().setGraphics(
+				render_device->loadGraphicSurface(fname, "Falling back to alpha version", false, true)
+			);
 		}
-		if (!sprites[slot].back()) {
-			sprites[slot].back() = loadGraphicSurface("images/avatar/" + stats[slot].gfx_base + "/preview/" + img_gfx[i] + ".png");
+		if (sprites[slot].back().graphicsIsNull()) {
+			sprites[slot].back().setGraphics(
+				render_device->loadGraphicSurface("images/avatar/" + stats[slot].gfx_base + "/preview/" + img_gfx[i] + ".png")
+			);
 		}
+		sprites[slot].back().setClip(0,0,sprites[slot].back().getGraphicsWidth(),sprites[slot].back().getGraphicsHeight());
+		sprites[slot].back().keep_graphics = true;
 	}
 
 }
@@ -517,27 +524,24 @@ void GameStateLoad::render() {
 	src.x = src.y = 0;
 	dest.x = slot_pos[0].x;
 	dest.y = slot_pos[0].y;
-	SDL_BlitSurface(background, &src, screen, &dest);
+	background.setClip(src);
+	background.setDest(dest);
+	render_device->render(background);
 
 	// display selection
 	if (selected_slot >= 0) {
-		src.w = gameslot_pos.w;
-		src.h = gameslot_pos.h;
-		src.x = src.y = 0;
-		SDL_BlitSurface(selection, &src, screen, &slot_pos[selected_slot]);
+		selection.setDest(slot_pos[selected_slot]);
+		render_device->render(selection);
 	}
 
 
 	// portrait
-	if (selected_slot >= 0 && portrait != NULL) {
-
-		src.w = portrait_pos.w;
-		src.h = portrait_pos.h;
-		dest.x = portrait_pos.x + (VIEW_W - FRAME_W)/2;
-		dest.y = portrait_pos.y + (VIEW_H - FRAME_H)/2;
-
-		SDL_BlitSurface(portrait, &src, screen, &dest);
-		SDL_BlitSurface(portrait_border, &src, screen, &dest);
+	if (selected_slot >= 0 && !portrait.graphicsIsNull()) {
+		render_device->render(portrait);
+		dest.x = portrait.getDest().x;
+		dest.y = portrait.getDest().y;
+		portrait_border.setDest(dest);
+		render_device->render(portrait_border);
 	}
 
 	Point label;
@@ -594,7 +598,9 @@ void GameStateLoad::render() {
 			src.w = src.h = preview_pos.h;
 
 			for (unsigned int i=0; i<sprites[slot].size(); i++) {
-				SDL_BlitSurface(sprites[slot][i], &src, screen, &dest);
+				sprites[slot][i].setClip(src);
+				sprites[slot][i].setDest(dest);
+				render_device->render(sprites[slot][i]);
 			}
 		}
 		else {
@@ -614,17 +620,13 @@ void GameStateLoad::render() {
 }
 
 GameStateLoad::~GameStateLoad() {
-	SDL_FreeSurface(background);
-	SDL_FreeSurface(selection);
-	SDL_FreeSurface(portrait_border);
-	SDL_FreeSurface(portrait);
 	delete button_exit;
 	delete button_action;
 	delete button_alternate;
 	delete items;
 	for (int slot=0; slot<GAME_SLOT_MAX; slot++) {
 		for (unsigned int i=0; i<sprites[slot].size(); i++) {
-			SDL_FreeSurface(sprites[slot][i]);
+			sprites[slot][i].clearGraphics();
 		}
 		sprites[slot].clear();
 	}

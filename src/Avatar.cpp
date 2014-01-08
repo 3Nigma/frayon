@@ -32,7 +32,6 @@ FLARE.  If not, see http://www.gnu.org/licenses/
 #include "FileParser.h"
 #include "Hazard.h"
 #include "MapRenderer.h"
-#include "SDL_gfxBlitFunc.h"
 #include "SharedResources.h"
 #include "Utils.h"
 #include "UtilsMath.h"
@@ -138,8 +137,8 @@ void Avatar::loadLayerDefinitions() {
 	layer_reference_order = vector<string>();
 
 	FileParser infile;
-	// @CLASS Avatar|Description of engine/hero_options.txt
-	if (infile.open("engine/hero_options.txt", true, false)) {
+	// @CLASS Avatar|Description of engine/hero_layers.txt
+	if (infile.open("engine/hero_layers.txt")) {
 		while(infile.next()) {
 			infile.val = infile.val + ',';
 
