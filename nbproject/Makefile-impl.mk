@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=flare-engine
+PROJECTNAME=frayon
 
 # Active Configuration
 DEFAULTCONF=Debug
