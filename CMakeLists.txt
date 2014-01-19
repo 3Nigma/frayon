@@ -1,8 +1,15 @@
-Project (Frayon)
+
+project (Frayon)
 cmake_minimum_required (VERSION 2.6)
 
-Set (PACKAGE "Frayon")
-Set (VERSION "0.0.1")
+set (PACKAGE "Frayon")
+set (VERSION "0.0.1")
+
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+set (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libs)
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libd)
+
+set (FRAYON_3RDPT_PATH ${CMAKE_BINARY_DIR}/3rdpt)
 
 # Default definitions
 set(CMAKE_CXX_FLAGS "-std=c++0x")
@@ -20,7 +27,6 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 # Detect missing dependencies
-
 include(FindPkgConfig)
 pkg_search_module(SDL2 REQUIRED sdl2)
 If (NOT SDL2_FOUND)
@@ -51,22 +57,45 @@ Else (NOT SDLTTF_FOUND)
   include_directories (${SDLTTF_INCLUDE_DIR})
 EndIf (NOT SDLTTF_FOUND)
 
-# Include paths
+# include paths
 include_directories(include)
+link_directories (${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
 
-# Sources
+# sources region
 set(FRAYON_SOURCES
     ./src/main.cpp
 )
 
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+# Add 3rd party resources
+# -- Pt v1.0
+add_subdirectory (${FRAYON_3RDPT_PATH}/Pt-1.0.0)
+
+#  -- lua 5.2
+add_subdirectory (${FRAYON_3RDPT_PATH}/lua-5.2)
+include_directories (${FRAYON_3RDPT_PATH}/lua-5.2)
+find_library(LUA_LIB_FILE lua HINTS "${FRAYON_3RDPT_PATH}/lua-5.2")
+
+#  -- luacppinterface
+add_subdirectory (${FRAYON_3RDPT_PATH}/LuaCppInterface-1.0)
+include_directories (${FRAYON_3RDPT_PATH}/LuaCppInterface-1.0)
+
+#  -- FANN v2.2.0
+add_subdirectory (${FRAYON_3RDPT_PATH}/fann-2.2.0)
+include_directories (${FRAYON_3RDPT_PATH}/fann-2.2.0/include)
+
+#  -- libjson
+add_subdirectory (${FRAYON_3RDPT_PATH}/libjson-7)
+include_directories (${FRAYON_3RDPT_PATH}/libjson-7)
+
+# -- Eigen v3.2.0
+include_directories (${FRAYON_3RDPT_PATH}/eigen-3.2.0)
 
 add_executable (frayon ${FRAYON_SOURCES})
-target_link_libraries (frayon ${CMAKE_LD_FLAGS} ${SDL2_LIBRARIES} ${SDLMIXER_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLTTF_LIBRARY})
-
-# installing to the proper places
-#install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/flare DESTINATION ${BINDIR})
-#install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/mods" DESTINATION ${DATADIR}/default)
-#install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/distribution/flare.man" DESTINATION ${MANDIR}/man1 RENAME flare.1)
-
+add_dependencies(frayon luacppinterface)
+target_link_libraries (frayon ${CMAKE_LD_FLAGS}  
+                              ${SDL2_LIBRARIES} 
+                              ${SDLMIXER_LIBRARY} 
+                              ${SDLIMAGE_LIBRARY} 
+                              ${SDLTTF_LIBRARY} 
+                              ${LUA_CPPI_LIBRARY}
+                              ${LUA_LIBRARY})

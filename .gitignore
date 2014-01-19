@@ -1,5 +1,11 @@
+# ignore cmake generated files
 Makefile
 cmake_install.cmake
 CMakeCache.txt
 CMakeFiles/*
+
+# ignore output directories + other stuff
 bin/*
+libs/*
+libd/*
+*~

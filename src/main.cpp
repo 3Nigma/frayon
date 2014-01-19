@@ -17,6 +17,7 @@
 #include <cassert>
 #include <cmath>
 #include <ctime>
+#include <luacppinterface.h>
 
 #define SDL_MAIN_HANDLED
 #include "SDL.h"
@@ -76,6 +77,9 @@ int main(int argc, char *argv[])
 	// Do some sanity checks
 	assert(SDL_MAJOR_VERSION == 2);
 
+	Lua* luap = new Lua();
+	delete luap;
+	
 	srand((unsigned int) time(NULL));
 	init();
 	mainLoop(debug_event);

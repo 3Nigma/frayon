@@ -14,6 +14,95 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="3rdpt" displayName="3rdpt" projectFiles="true">
+        <logicalFolder name="lua5.2" displayName="lua5.2" projectFiles="true">
+          <itemPath>3rdpt/lua5.2/CMakeLists.txt</itemPath>
+          <itemPath>3rdpt/lua5.2/lapi.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lapi.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lauxlib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lauxlib.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lbaselib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lbitlib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lcode.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lcode.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lcorolib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lctype.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lctype.h</itemPath>
+          <itemPath>3rdpt/lua5.2/ldblib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ldebug.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ldebug.h</itemPath>
+          <itemPath>3rdpt/lua5.2/ldo.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ldo.h</itemPath>
+          <itemPath>3rdpt/lua5.2/ldump.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lfunc.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lfunc.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lgc.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lgc.h</itemPath>
+          <itemPath>3rdpt/lua5.2/linit.c</itemPath>
+          <itemPath>3rdpt/lua5.2/liolib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/llex.c</itemPath>
+          <itemPath>3rdpt/lua5.2/llex.h</itemPath>
+          <itemPath>3rdpt/lua5.2/llimits.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lmathlib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lmem.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lmem.h</itemPath>
+          <itemPath>3rdpt/lua5.2/loadlib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lobject.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lobject.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lopcodes.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lopcodes.h</itemPath>
+          <itemPath>3rdpt/lua5.2/loslib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lparser.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lparser.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lstate.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lstate.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lstring.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lstring.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lstrlib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ltable.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ltable.h</itemPath>
+          <itemPath>3rdpt/lua5.2/ltablib.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ltm.c</itemPath>
+          <itemPath>3rdpt/lua5.2/ltm.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lua.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lua.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lua.hpp</itemPath>
+          <itemPath>3rdpt/lua5.2/luac.c</itemPath>
+          <itemPath>3rdpt/lua5.2/luaconf.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lualib.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lundump.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lundump.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lvm.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lvm.h</itemPath>
+          <itemPath>3rdpt/lua5.2/lzio.c</itemPath>
+          <itemPath>3rdpt/lua5.2/lzio.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LuaCppInterface"
+                       displayName="LuaCppInterface"
+                       projectFiles="true">
+          <itemPath>3rdpt/LuaCppInterface/CMakeLists.txt</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luacoroutine.cpp</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luacoroutine.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luacppinterface.cpp</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luacppinterface.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luafunction.cpp</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luafunction.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luafunctionbase.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luageneralgenericfunctions.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luagenericfunction.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/lualightuserdata.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luareference.cpp</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luareference.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luatable.cpp</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luatable.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luatype.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luatypetemplates.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luauserdata.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luauserdatabindtemplates.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luauserdataforwards.h</itemPath>
+          <itemPath>3rdpt/LuaCppInterface/luavoidgenericfunctions.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -29,6 +118,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>3rdpt</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -40,14 +132,241 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <incDir>
+            <pElem>3rdpt/lua5.2</pElem>
+            <pElem>3rdpt/LuaCppInterface</pElem>
+          </incDir>
         </ccTool>
         <linkerTool>
           <output>bin/frayon</output>
+          <linkerAddLib>
+            <pElem>3rdpt/lua5.2</pElem>
+            <pElem>3rdpt/LuaCppInterface</pElem>
+          </linkerAddLib>
           <linkerLibItems>
             <linkerOptionItem>`pkg-config --libs sdl2`</linkerOptionItem>
+            <linkerOptionItem>-llua</linkerOptionItem>
+            <linkerOptionItem>-lluacppinterface</linkerOptionItem>
           </linkerLibItems>
+          <commandLine>-static</commandLine>
         </linkerTool>
       </compileType>
+      <item path="3rdpt/LuaCppInterface/CMakeLists.txt"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacoroutine.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacoroutine.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacppinterface.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacppinterface.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luafunction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luafunction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luafunctionbase.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luageneralgenericfunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luagenericfunction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/lualightuserdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luareference.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luareference.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatype.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatypetemplates.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luauserdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luauserdatabindtemplates.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luauserdataforwards.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luavoidgenericfunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lapi.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lapi.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lauxlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lauxlib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lbaselib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lbitlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lcode.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lcode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lcorolib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lctype.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lctype.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldblib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldebug.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldebug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldump.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lfunc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lfunc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lgc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lgc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/linit.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/liolib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/llex.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/llex.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/llimits.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lmathlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lmem.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lmem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/loadlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lobject.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lobject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lopcodes.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lopcodes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/loslib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lparser.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lparser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstate.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstring.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstring.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstrlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltable.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltablib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltm.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lua.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lua.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lua.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/luac.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/luaconf.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lualib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lundump.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lundump.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lvm.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lvm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lzio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lzio.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -71,6 +390,222 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="3rdpt/LuaCppInterface/CMakeLists.txt"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacoroutine.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacoroutine.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacppinterface.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luacppinterface.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luafunction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luafunction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luafunctionbase.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luageneralgenericfunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luagenericfunction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/lualightuserdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luareference.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luareference.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatype.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luatypetemplates.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luauserdata.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luauserdatabindtemplates.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luauserdataforwards.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/LuaCppInterface/luavoidgenericfunctions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/CMakeLists.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lapi.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lapi.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lauxlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lauxlib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lbaselib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lbitlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lcode.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lcode.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lcorolib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lctype.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lctype.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldblib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldebug.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldebug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ldump.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lfunc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lfunc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lgc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lgc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/linit.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/liolib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/llex.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/llex.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/llimits.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lmathlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lmem.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lmem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/loadlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lobject.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lobject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lopcodes.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lopcodes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/loslib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lparser.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lparser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstate.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstring.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstring.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lstrlib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltable.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltablib.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltm.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/ltm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lua.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lua.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lua.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/luac.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/luaconf.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lualib.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lundump.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lundump.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lvm.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lvm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lzio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="3rdpt/lua5.2/lzio.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
