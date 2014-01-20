@@ -38,5 +38,6 @@ if (BUILD_DYNAMIC_LIB)
   add_library (Pt SHARED ${PT_SOURCES})
 else ()
   add_library (Pt STATIC ${PT_SOURCES})
-  set (PT_STATIC_LIBRARY -lPt PARENT_SCOPE)
 endif ()
+
+set (PT_STATIC_LIBRARY -lPt PARENT_SCOPE)
